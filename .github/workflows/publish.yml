@@ -15,11 +15,24 @@ jobs:
   npm:
     name: Publish to npm
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    permissions:
+      contents: read
+      id-token: write # OIDC trusted publishing — no token required
     steps:
       - name: Checkout
         uses: actions/checkout@v4
         with:
           persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: https://registry.npmjs.org
+
+      # Trusted publishing requires npm 11.5.1+
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - name: Verify tag matches package version
         env:
@@ -33,23 +46,5 @@ jobs:
           fi
           echo "Tag $REF_NAME matches package version $pkg_version"
 
-      # Same publishing credentials as Good-Native/hover: the npm access
-      # token lives in 1Password and is loaded via the org service account.
-      - name: Load secrets from 1Password
-        uses: 1password/load-secrets-action@eb2efd0703da22a93c467f2d1ffbb6826c11e19c # v4.1.1
-        with:
-          export-env: true
-        env:
-          OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
-          NPM_TOKEN: op://Good Native/npm/npm_access_token
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org
-
       - name: Publish to npm
-        env:
-          NODE_AUTH_TOKEN: ${{ env.NPM_TOKEN }}
         run: npm publish --access public
