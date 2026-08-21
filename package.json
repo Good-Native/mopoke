@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "description": "The little owl that watches your DNS. Polls domains for expected A/CNAME values and sings out the moment your cutover lands.",
   "keywords": ["dns", "propagation", "cutover", "watch", "cli", "cname", "a-record"],
-  "homepage": "https://github.com/simonsmallchua/mopoke#readme",
+  "homepage": "https://github.com/Good-Native/mopoke#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/simonsmallchua/mopoke.git"
+    "url": "git+https://github.com/Good-Native/mopoke.git"
   },
   "bugs": {
-    "url": "https://github.com/simonsmallchua/mopoke/issues"
+    "url": "https://github.com/Good-Native/mopoke/issues"
   },
   "license": "MIT",
   "author": "Simon Smallchua",
