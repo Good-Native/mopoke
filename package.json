@@ -1,5 +1,5 @@
 {
-  "name": "mopoke",
+  "name": "@good-native/mopoke",
   "version": "0.1.0",
   "description": "The little owl that watches your DNS. Polls domains for expected A/CNAME values and sings out the moment your cutover lands.",
   "keywords": ["dns", "propagation", "cutover", "watch", "cli", "cname", "a-record"],

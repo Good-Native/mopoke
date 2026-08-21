@@ -48,8 +48,10 @@ mutate records, hit registrar APIs, or phone home.
   (changelog-check.yml enforces this; `no-release` label skips the
   auto-release on merge).
 - Merges to `main` with unreleased changelog content auto-cut a release:
-  version bump, `vX.Y.Z` tag, GitHub release, npm publish (see
-  `.github/workflows/`).
+  version bump, `vX.Y.Z` tag, GitHub release, npm publish of
+  `@good-native/mopoke` (see `.github/workflows/`). Publish credentials
+  are loaded from 1Password via `OP_SERVICE_ACCOUNT_TOKEN`, same as
+  Good-Native/hover.
 
 ## Commit style
 

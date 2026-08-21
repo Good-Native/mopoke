@@ -40,8 +40,9 @@ Every PR to `main` must add at least one line under `## [Unreleased]` in
 `[Unreleased]` cuts a patch.
 
 On merge, the auto-release workflow bumps `package.json`, tags
-`vX.Y.Z`, creates a GitHub release, and publishes to npm. Apply the
-`no-release` label to a PR to skip this.
+`vX.Y.Z`, creates a GitHub release, and publishes `@good-native/mopoke`
+to npm (credentials come from the org's 1Password service account, as in
+Hover). Apply the `no-release` label to a PR to skip this.
 
 ## Commit style
 
