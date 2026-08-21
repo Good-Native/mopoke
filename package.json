@@ -12,7 +12,7 @@
     "url": "https://github.com/Good-Native/mopoke/issues"
   },
   "license": "MIT",
-  "author": "Simon Smallchua",
+  "author": "Good-Native",
   "bin": {
     "mopoke": "bin/mopoke.js"
   },
